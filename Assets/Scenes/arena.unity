@@ -481,14 +481,19 @@ Prefab:
       propertyPath: m_Name
       value: SpaceShipHuman
       objectReference: {fileID: 0}
-    - target: {fileID: 114271401488027298, guid: b7f175215beeb2d40ac35084d09d9ba4,
-        type: 2}
-      propertyPath: initialType
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7f175215beeb2d40ac35084d09d9ba4, type: 2}
   m_IsPrefabParent: 0
+--- !u!23 &334050388 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 23158697332547100, guid: b7f175215beeb2d40ac35084d09d9ba4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1811262545}
+--- !u!33 &334050390 stripped
+MeshFilter:
+  m_PrefabParentObject: {fileID: 33650330799433724, guid: b7f175215beeb2d40ac35084d09d9ba4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1811262545}
 --- !u!114 &382942325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,6 +692,21 @@ Prefab:
       propertyPath: initialType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114203516976469228, guid: b7f175215beeb2d40ac35084d09d9ba4,
+        type: 2}
+      propertyPath: shipMesh
+      value: 
+      objectReference: {fileID: 1825055787}
+    - target: {fileID: 114203516976469228, guid: b7f175215beeb2d40ac35084d09d9ba4,
+        type: 2}
+      propertyPath: color
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203516976469228, guid: b7f175215beeb2d40ac35084d09d9ba4,
+        type: 2}
+      propertyPath: shipRend
+      value: 
+      objectReference: {fileID: 1825055785}
     m_RemovedComponents:
     - {fileID: 114091050679727830, guid: b7f175215beeb2d40ac35084d09d9ba4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b7f175215beeb2d40ac35084d09d9ba4, type: 2}
@@ -1903,10 +1923,35 @@ Prefab:
       propertyPath: initialType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114203516976469228, guid: b7f175215beeb2d40ac35084d09d9ba4,
+        type: 2}
+      propertyPath: shipMesh
+      value: 
+      objectReference: {fileID: 334050390}
+    - target: {fileID: 114203516976469228, guid: b7f175215beeb2d40ac35084d09d9ba4,
+        type: 2}
+      propertyPath: color
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203516976469228, guid: b7f175215beeb2d40ac35084d09d9ba4,
+        type: 2}
+      propertyPath: shipRend
+      value: 
+      objectReference: {fileID: 334050388}
     m_RemovedComponents:
     - {fileID: 114091050679727830, guid: b7f175215beeb2d40ac35084d09d9ba4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b7f175215beeb2d40ac35084d09d9ba4, type: 2}
   m_IsPrefabParent: 0
+--- !u!23 &1825055785 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 23158697332547100, guid: b7f175215beeb2d40ac35084d09d9ba4,
+    type: 2}
+  m_PrefabInternal: {fileID: 493287931}
+--- !u!33 &1825055787 stripped
+MeshFilter:
+  m_PrefabParentObject: {fileID: 33650330799433724, guid: b7f175215beeb2d40ac35084d09d9ba4,
+    type: 2}
+  m_PrefabInternal: {fileID: 493287931}
 --- !u!4 &1828592669 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4699607612119006, guid: 718c272e195f6aa4dacf7af66fcec791,
@@ -2142,6 +2187,8 @@ MonoBehaviour:
     reload: 0.5
     lifeTime: 3
     damage: 10
+    mesh: {fileID: 4300000, guid: 5a4e0f4ea99db6b40b54ed5fe0e5231a, type: 3}
+    material: {fileID: 2100000, guid: f6fe2e9385e434a4c8d11d33fb632a53, type: 2}
   - t: 1
     projectileProto: {fileID: 114900960757996052, guid: 48a218b5e550f24468cfe64afec07334,
       type: 2}
@@ -2149,6 +2196,8 @@ MonoBehaviour:
     reload: 0.2
     lifeTime: 3
     damage: 10
+    mesh: {fileID: 4300000, guid: 7eea0e0b7400b1440a841449a4df3126, type: 3}
+    material: {fileID: 2100000, guid: 3123bc7ab1752f84297563051ccfb8d8, type: 2}
   - t: 2
     projectileProto: {fileID: 114900960757996052, guid: 48a218b5e550f24468cfe64afec07334,
       type: 2}
@@ -2156,6 +2205,8 @@ MonoBehaviour:
     reload: 0.2
     lifeTime: 3
     damage: 10
+    mesh: {fileID: 4300000, guid: b20df81762e939349a63ff39a55c4a1f, type: 3}
+    material: {fileID: 2100000, guid: 7171a0f31d0e30b4d848e4dbbc9efa28, type: 2}
   - t: 4
     projectileProto: {fileID: 114900960757996052, guid: 8601ebb6fb6b27245bb3f5692d01cfe3,
       type: 2}
@@ -2163,6 +2214,8 @@ MonoBehaviour:
     reload: 0
     lifeTime: 2
     damage: 1
+    mesh: {fileID: 4300000, guid: fe86a7732c176044aad32cc42f9f6c42, type: 3}
+    material: {fileID: 2100000, guid: 3d433f229cc220f41b3f86aa39fb43e8, type: 2}
   - t: 3
     projectileProto: {fileID: 114900960757996052, guid: f094dc242ce1046458d6638e7efe886f,
       type: 2}
@@ -2170,6 +2223,8 @@ MonoBehaviour:
     reload: 1.5
     lifeTime: 6
     damage: 25
+    mesh: {fileID: 4300000, guid: cb1de020807fc534b90c4078ac0949ad, type: 3}
+    material: {fileID: 2100000, guid: 1f5fd09fd9db9ae4197672312ca42b6c, type: 2}
   - t: 5
     projectileProto: {fileID: 114900960757996052, guid: f094dc242ce1046458d6638e7efe886f,
       type: 2}
@@ -2177,12 +2232,8 @@ MonoBehaviour:
     reload: 1.5
     lifeTime: 8
     damage: 25
-  - t: 3
-    projectileProto: {fileID: 0}
-    velocity: 10
-    reload: 1.5
-    lifeTime: 2
-    damage: 25
+    mesh: {fileID: 4300000, guid: cb1de020807fc534b90c4078ac0949ad, type: 3}
+    material: {fileID: 2100000, guid: 1f5fd09fd9db9ae4197672312ca42b6c, type: 2}
 --- !u!4 &2060713119
 Transform:
   m_ObjectHideFlags: 0

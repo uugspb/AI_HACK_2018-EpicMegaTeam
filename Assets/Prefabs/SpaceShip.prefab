@@ -189,9 +189,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4630099845438768}
-  - component: {fileID: 65901455488132032}
   - component: {fileID: 54713261966535742}
   - component: {fileID: 114203516976469228}
+  - component: {fileID: 64812277011553122}
+  - component: {fileID: 135022575541238946}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: Untagged
@@ -262,7 +263,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1402369351092342}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.304, y: 0, z: 0}
   m_LocalScale: {x: 0.012, y: 0.012, z: 0.012}
   m_Children: []
   m_Father: {fileID: 4630099845438768}
@@ -287,8 +288,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1802015269360992}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.2, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.6, y: 0, z: -3.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4302369904390334}
@@ -332,7 +333,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779608754410080}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -0.201, y: 0, z: -0}
+  m_LocalPosition: {x: 0.012, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4115719912912976}
@@ -644,24 +645,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!64 &64812277011553122
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802015269360992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 0}
 --- !u!65 &65662685295404028
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1402369351092342}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65901455488132032
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1802015269360992}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -731,9 +734,12 @@ MonoBehaviour:
   aim: {fileID: 4931321058153798}
   center: {fileID: 4901717151372894}
   weapon: {fileID: 114271401488027298}
+  shipMesh: {fileID: 33650330799433724}
+  shipRend: {fileID: 23158697332547100}
   engineFire: {fileID: 114624217030709676}
   pl: {fileID: 114900960757996052, guid: 48a218b5e550f24468cfe64afec07334, type: 2}
   Name: Player
+  color: 1
 --- !u!114 &114271401488027298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -751,7 +757,7 @@ MonoBehaviour:
   aim3: {fileID: 4188900088454532}
   spaceShip: {fileID: 54713261966535742}
   ownerName: 
-  initialType: 6
+  initialType: 5
 --- !u!114 &114396317175414788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -780,6 +786,18 @@ MonoBehaviour:
   emitters:
   - {fileID: 198525019901939706}
   - {fileID: 198513833208379130}
+--- !u!135 &135022575541238946
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802015269360992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0.3, y: 0, z: 0}
 --- !u!198 &198513833208379130
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -840,7 +858,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 1059102659
+  randomSeed: -1184767722
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4057,7 +4075,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 1735278791
+  randomSeed: -1692726740
   InitialModule:
     serializedVersion: 3
     enabled: 1

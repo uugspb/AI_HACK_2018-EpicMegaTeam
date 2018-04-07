@@ -15,6 +15,8 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
     [SerializeField] Transform aim;
     [SerializeField] Transform center;
     [SerializeField] Weapon weapon;
+    [SerializeField] MeshFilter shipMesh;
+    [SerializeField] MeshRenderer shipRend;
     [SerializeField] FireEngine engineFire;
     public Projectile pl;
 
@@ -32,13 +34,14 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
-        OnSpawn();
         SetOwnerName(Name);
+        OnSpawn();
 	}
 
     public void OnSpawn()
     {
-        weapon.type = GameParams.ProjectileType.Basic;
+        SetWeapon(GameParams.ProjectileType.Basic);
+        //weapon.type = GameParams.ProjectileType.Basic;
         _hp = GameParams.SPACESHIP_MAX_HP;
         GameContext.Instance.ships.Add(info);
     }
@@ -154,5 +157,41 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         _accelerateIntention = false;
         _slowDownIntention = false;
         _shotIntention = false;
+    }
+    public enum Color
+    {
+        RED = 1,
+        GREEN = 2,
+        BLUE = 3
+    }
+    [SerializeField] Color color;
+
+    UnityEngine.Color GetColor(Color clr)
+    {
+        switch (clr)
+        {
+            case Color.RED:
+                return new UnityEngine.Color(232f / 255f, 76f / 255f, 61f / 255f, 1.0f);
+                break;
+            case Color.GREEN:
+                return new UnityEngine.Color(45f / 255f, 204f / 255f, 112f / 255f, 1.0f);
+                break;
+            case Color.BLUE:
+                return new UnityEngine.Color(53f / 255f, 152f / 255f, 219f / 255f, 1.0f);
+                break;
+            default:
+                return UnityEngine.Color.white;
+        }
+    }
+
+
+    public void SetWeapon(GameParams.ProjectileType weaponType)
+    {
+        var info = GameParams.GetProjectileInfo(weaponType);
+        weapon.type = weaponType;
+        shipMesh.mesh = info.mesh;
+        var mat = new Material(info.material);
+        mat.color = GetColor(color);
+        shipRend.material = mat;
     }
 }
