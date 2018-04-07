@@ -289,6 +289,9 @@
     <Reference Include="JMOAssets_CartoonFXFreeWelcome">
       <HintPath>Assets/JMO Assets/Editor/JMOAssets_CartoonFXFreeWelcome.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets/ML-Agents/Plugins/JSON/Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="RockSpace3D.Plugins.csproj">
@@ -307,6 +310,68 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightFlicker.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\3DBall\Scripts\Ball3DAcademy.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\3DBall\Scripts\Ball3DAgent.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\3DBall\Scripts\Ball3DDecision.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\3DBall\Scripts\Ball3DHardAgent.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\BananaCollectors\Scripts\BananaAcademy.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\BananaCollectors\Scripts\BananaAgent.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\BananaCollectors\Scripts\BananaArea.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\BananaCollectors\Scripts\BananaLogic.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Basic\Scripts\BasicAcademy.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Basic\Scripts\BasicAgent.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Basic\Scripts\BasicDecision.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Bouncer\Scripts\BouncerAcademy.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Bouncer\Scripts\BouncerAgent.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Bouncer\Scripts\BouncerBanana.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Crawler\Scripts\CrawlerAcademy.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Crawler\Scripts\CrawlerAgentConfigurable.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Crawler\Scripts\CrawlerBodyContact.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Crawler\Scripts\CrawlerLegContact.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\GridWorld\Scripts\GridAcademy.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\GridWorld\Scripts\GridAgent.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Hallway\Scripts\HallwayAcademy.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Hallway\Scripts\HallwayAgent.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\PushBlock\Scripts\GoalDetect.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\PushBlock\Scripts\PushAgentBasic.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\PushBlock\Scripts\PushBlockAcademy.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Reacher\Scripts\ReacherAcademy.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Reacher\Scripts\ReacherAgent.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Reacher\Scripts\ReacherDecision.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Reacher\Scripts\ReacherGoal.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\SharedAssets\Scripts\Area.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\SharedAssets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\SharedAssets\Scripts\FlyCamera.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\SharedAssets\Scripts\RandomDecision.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\SharedAssets\Scripts\RayPerception.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Soccer\Scripts\AgentSoccer.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Soccer\Scripts\SoccerAcademy.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Soccer\Scripts\SoccerBallController.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Soccer\Scripts\SoccerFieldArea.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Template\Scripts\TemplateAcademy.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Template\Scripts\TemplateAgent.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Template\Scripts\TemplateDecision.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Tennis\Scripts\hitWall.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Tennis\Scripts\TennisAcademy.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Tennis\Scripts\TennisAgent.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\Tennis\Scripts\TennisArea.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\WallJump\Scripts\WallJumpAcademy.cs" />
+    <Compile Include="Assets\ML-Agents\Examples\WallJump\Scripts\WallJumpAgent.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\Academy.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\Agent.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\BCTeacherHelper.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\Brain.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\Communicator.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\CoreBrain.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\CoreBrainExternal.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\CoreBrainHeuristic.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\CoreBrainInternal.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\CoreBrainPlayer.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\Decision.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\ExternalCommunicator.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\Monitor.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\ResetParameters.cs" />
+    <Compile Include="Assets\ML-Agents\Scripts\UnityAgentsException.cs" />
     <Compile Include="Assets\Scripts\FX\FireEngine.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Asteroid.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Bonuses\BonusBase.cs" />
@@ -325,6 +390,8 @@
     <Compile Include="Assets\Scripts\Gameplay\SpaceShipInterface.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Weapon.cs" />
     <Compile Include="Assets\Scripts\GUI\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\ML\SpaceRocksAcademy.cs" />
+    <Compile Include="Assets\Scripts\ML\SpaceRocksAgent.cs" />
     <Compile Include="Assets\Scripts\Stuff\CameraFollower.cs" />
   </ItemGroup>
   <ItemGroup>

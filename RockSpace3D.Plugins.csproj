@@ -289,6 +289,9 @@
     <Reference Include="JMOAssets_CartoonFXFreeWelcome">
       <HintPath>Assets/JMO Assets/Editor/JMOAssets_CartoonFXFreeWelcome.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets/ML-Agents/Plugins/JSON/Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Plugins\Pixelplacement\iTween\iTween.cs" />
