@@ -9,9 +9,9 @@ public class CameraFollower : MonoBehaviour {
 	void Update () {
         if (target != null)
         {
-            var pos = target.position;
-            pos.y = this.transform.position.y;
-            this.transform.position = pos;
+            var result = target.position;
+            result.y = this.transform.position.y;
+            this.transform.position = this.transform.position + (result - this.transform.position) * 0.02f;
         }
 	}
 }

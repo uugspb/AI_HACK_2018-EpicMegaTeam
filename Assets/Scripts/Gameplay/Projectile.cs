@@ -8,11 +8,15 @@ public class Projectile : MonoBehaviour
     bool _initialized = false;
     string ownerName;
     GameParams.ProjectileType type;
+    [SerializeField] GameObject explosionProto;
+    [SerializeField] GameObject spawnProto;
 
     public string GetOwnerName()
     {
         return ownerName;
     }
+
+   
 
     public static Projectile SpawnProjectile(GameParams.ProjectStruct projectileInfo, Transform gun)
     {
@@ -34,6 +38,11 @@ public class Projectile : MonoBehaviour
         {
             if (other.name.Contains("Planet"))
             {
+                Destruct();
+            }
+            if (other.name.Contains("Asteroid"))
+            {
+                other.GetComponent<Asteroid>().Destruct();
                 Destruct();
             }
         }
@@ -62,13 +71,17 @@ public class Projectile : MonoBehaviour
             {
                 TargetName = GetBetterTarget();
             }
+            if (spawnProto != null)
+            {
+                Instantiate(spawnProto, this.transform.position, this.transform.rotation);
+            }
         }
     }
 
     string GetBetterTarget()
     {
         float minDist = 999999f;
-        int idx = 0;
+        int idx = -1;
         var pos = this.transform.position + rb.velocity * 10;
         for (int i = 0; i < GameContext.Instance.ships.Count; i++)
         {
@@ -80,7 +93,7 @@ public class Projectile : MonoBehaviour
             }
         }
 
-        return GameContext.Instance.ships[idx].ownerName;
+        return idx >= 0 ? GameContext.Instance.ships[idx].ownerName : "";
     }
 
     IEnumerator WaitAndDie(float time)
@@ -106,6 +119,10 @@ public class Projectile : MonoBehaviour
     {
         StopAllCoroutines();
         GameContext.Instance.projectiles.Remove(this);
+        if (explosionProto != null)
+        {
+            Instantiate(explosionProto, this.transform.position, this.transform.rotation);
+        }
         Destroy(this.gameObject);
     }
 

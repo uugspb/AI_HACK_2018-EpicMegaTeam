@@ -24,8 +24,10 @@ public class GameContext : MonoBehaviour {
 
     public List<BonusBase> bonuses = new List<BonusBase>();
 
+    public List<Asteroid> asteroids = new List<Asteroid>();
+
     private void Update()
     {
-        //Debug.Log("Ships:" + ships.Count + "///       Projectiles:" + projectiles.Count + "///       Bonuses:" + bonuses.Count);
+        //Debug.Log("Ships:" + ships.Count + "///       Projectiles:" + projectiles.Count + "///       Bonuses:" + bonuses.Count + "///       Bonuses:" + Asteroids.Count);
     }
 }

@@ -15,6 +15,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
     [SerializeField] Transform aim;
     [SerializeField] Transform center;
     [SerializeField] Weapon weapon;
+    [SerializeField] FireEngine engineFire;
     public Projectile pl;
 
     bool _rotateLeftIntention = false;
@@ -76,6 +77,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
     Vector3 _lastAcceleration;
 	void FixedUpdate ()
     {
+        bool enableEngine = false;
         _lastAcceleration = Vector3.zero;
         if (_rotateLeftIntention)
         {
@@ -93,6 +95,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
             vel = CheckForce(vel);
             rb.AddForce(vel);
             _lastAcceleration = vel;
+            enableEngine = true;
             //rb.velocity.Set(vel.x, vel.y, vel.z);
         }
 
@@ -101,6 +104,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
             weapon.Shot();
         }
         ResetIntentions();
+        engineFire.SetActive(enableEngine);
     }
 
     void Update()
