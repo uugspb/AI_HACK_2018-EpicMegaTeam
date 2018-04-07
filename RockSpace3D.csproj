@@ -317,6 +317,7 @@
     <Compile Include="Assets\Scripts\Gameplay\Controllers\ShooterController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameContext.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameManagement\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\GameManagement\ScoreCounter.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameParams.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Projectile.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SpaceShip.cs" />

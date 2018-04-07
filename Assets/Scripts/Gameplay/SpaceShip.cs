@@ -43,7 +43,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         GameContext.Instance.ships.Add(info);
     }
 
-    public void Damage(int dmg)
+    public int Damage(int dmg)
     {
         _hp -= dmg;
 
@@ -57,6 +57,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
             OnDestroy();
             //Destroy(this.gameObject);
         }
+        return _hp;
     }
 
     void OnDestroy()

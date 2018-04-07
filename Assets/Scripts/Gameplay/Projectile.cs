@@ -30,7 +30,16 @@ public class Projectile : MonoBehaviour
         {
             if (ship.GetOwner() != ownerName)
             {
-                ship.Damage(GameParams.GetProjectileInfo(type).damage);
+                var hp = ship.GetHP();
+                var result =  ship.Damage(GameParams.GetProjectileInfo(type).damage);
+                if (result <= 0)
+                {
+                    ScoreCounter.AddScore(ownerName, 100);
+                }
+                else
+                {
+                    ScoreCounter.AddScore(ownerName, hp - result);
+                }
                 Destruct();
             }
         }
