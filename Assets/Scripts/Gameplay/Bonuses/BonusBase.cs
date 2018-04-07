@@ -15,6 +15,11 @@ public abstract class BonusBase : MonoBehaviour {
             OnDestroy();
             Destroy(this.gameObject);
         }
+        if (other.name.Contains("Planet"))
+        {
+            OnDestroy();
+            Destroy(this.gameObject);
+        }
     }
 
     public abstract void OnBonusPick(SpaceShip ship);

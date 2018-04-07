@@ -30,6 +30,11 @@ public class Weapon : MonoBehaviour
     GameParams.ProjectileType _type;
     bool _mayShot;
 
+    private void OnEnable()
+    {
+        _mayShot = true;
+    }
+
     public GameParams.ProjectileType GetWeaponType()
     {
         return type;

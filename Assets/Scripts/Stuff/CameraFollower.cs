@@ -11,7 +11,7 @@ public class CameraFollower : MonoBehaviour {
         {
             var result = target.position;
             result.y = this.transform.position.y;
-            this.transform.position = this.transform.position + (result - this.transform.position) * 0.02f;
+            iTween.MoveUpdate(this.gameObject, result, 0.1f);
         }
 	}
 }

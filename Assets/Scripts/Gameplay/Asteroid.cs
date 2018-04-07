@@ -10,7 +10,7 @@ public class Asteroid : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody>();
         rb.angularVelocity = new Vector3(Random.Range(0, 10)/10f, Random.Range(0, 10) / 10f, Random.Range(0, 10) / 10f);
-        rb.velocity = new Vector3(Random.Range(0, 10) / 10f, 0, Random.Range(0, 10) / 10f);
+        rb.velocity = new Vector3(Random.Range(-10, 10) / 5f, 0, Random.Range(-10, 10) / 5f);
     }
 
     private void Start()
@@ -26,5 +26,13 @@ public class Asteroid : MonoBehaviour {
             Instantiate(explosionProto, this.transform.position, this.transform.rotation);
         }
         Destroy(this.gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name.Contains("Planet"))
+        {
+            Destruct();
+        }
     }
 }

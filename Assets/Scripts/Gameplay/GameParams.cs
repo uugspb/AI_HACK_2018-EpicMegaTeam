@@ -11,17 +11,18 @@ public class GameParams : MonoBehaviour {
 
     public const float HOMING_COEFF = 0.08f;
     public const int PROJECTILE_BASIC_SPEED = 3;
+    public const int ASTEROIDS_MAX = 25;
+    public const int BONUSES_MAX = 8;
 
 
     public enum ProjectileType
     {
-        Basic,
-        Twinned,
-        Triple,
-        Missile,
-        Mine,
-        Laser,
-        HomingMissile
+        Basic = 0,
+        Twinned = 1,
+        Triple = 2,
+        Missile = 3,
+        Laser = 4,
+        HomingMissile = 5
     }
 
     public enum BonusType

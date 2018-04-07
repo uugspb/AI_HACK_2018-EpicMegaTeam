@@ -28,16 +28,20 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
     SpaceShipInfo info = new SpaceShipInfo();
 
     public string Name;
-
-    bool _mayShot = true;
+    
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
-        _mayShot = true;
-        _hp = GameParams.SPACESHIP_MAX_HP;
-        GameContext.Instance.ships.Add(info);
+        OnSpawn();
         SetOwnerName(Name);
 	}
+
+    public void OnSpawn()
+    {
+        weapon.type = GameParams.ProjectileType.Basic;
+        _hp = GameParams.SPACESHIP_MAX_HP;
+        GameContext.Instance.ships.Add(info);
+    }
 
     public void Damage(int dmg)
     {
@@ -51,7 +55,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         if (_hp <= 0)
         {
             OnDestroy();
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
     }
 
@@ -62,6 +66,9 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         {
             GameContext.Instance.ships.RemoveAt(idx);
         }
+        GameManager.Instance.InitializeRespawn(this);
+        StopAllCoroutines();
+        this.gameObject.SetActive(false);
     }
 
     public void SetOwnerName(string name)
