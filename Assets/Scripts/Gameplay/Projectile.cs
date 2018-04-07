@@ -27,7 +27,13 @@ public class Projectile : MonoBehaviour
             if (ship.GetOwner() != ownerName)
             {
                 ship.Damage(GameParams.GetProjectileInfo(type).damage);
-                StopAllCoroutines();
+                Destruct();
+            }
+        }
+        else
+        {
+            if (other.name.Contains("Planet"))
+            {
                 Destruct();
             }
         }
@@ -38,6 +44,8 @@ public class Projectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
+
+    string TargetName;
 
     public void Init(Vector3 velocity, float lifeTime, string ownerName, GameParams.ProjectileType type)
     {
@@ -50,7 +58,29 @@ public class Projectile : MonoBehaviour
             _initialized = true;
             StartCoroutine(WaitAndDie(lifeTime));
             GameContext.Instance.projectiles.Add(this);
+            if (type == GameParams.ProjectileType.HomingMissile)
+            {
+                TargetName = GetBetterTarget();
+            }
         }
+    }
+
+    string GetBetterTarget()
+    {
+        float minDist = 999999f;
+        int idx = 0;
+        var pos = this.transform.position + rb.velocity * 10;
+        for (int i = 0; i < GameContext.Instance.ships.Count; i++)
+        {
+            float dist = Vector3.Distance(pos, GameContext.Instance.ships[i].position);
+            if (dist < minDist && GameContext.Instance.ships[i].ownerName != ownerName)
+            {
+                idx = i;
+                minDist = dist;
+            }
+        }
+
+        return GameContext.Instance.ships[idx].ownerName;
     }
 
     IEnumerator WaitAndDie(float time)
@@ -59,8 +89,22 @@ public class Projectile : MonoBehaviour
         Destruct();
     }
 
+    private void Update()
+    {
+        if (type == GameParams.ProjectileType.HomingMissile)
+        {
+            int idx = GameContext.Instance.ships.FindIndex(s => s.ownerName == TargetName);
+            if (idx >= 0)
+            {
+                rb.velocity = (rb.velocity + (GameContext.Instance.ships[idx].position - this.transform.position) * GameParams.HOMING_COEFF).normalized * GameParams.GetProjectileInfo(GameParams.ProjectileType.HomingMissile).velocity;
+                //rb.AddForce((GameContext.Instance.ships[idx].position - (this.transform.position + rb.velocity)).normalized * 125);
+            }
+        }
+    }
+
     void Destruct()
     {
+        StopAllCoroutines();
         GameContext.Instance.projectiles.Remove(this);
         Destroy(this.gameObject);
     }

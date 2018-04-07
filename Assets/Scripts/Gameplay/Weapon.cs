@@ -76,7 +76,7 @@ public class Weapon : MonoBehaviour
     {
         var projectile = Projectile.SpawnProjectile(projectileInfo, gun);
         projectile.transform.localPosition = offset;
-        projectile.Init((aim.position - gun.position).normalized * projectileInfo.velocity + spaceShip.velocity, projectileInfo.lifeTime, ownerName, type);
+        projectile.Init((aim.position - gun.position).normalized * projectileInfo.velocity/* + spaceShip.velocity*/, projectileInfo.lifeTime, ownerName, type);
     }    
 
     public float GetReloadingTime()

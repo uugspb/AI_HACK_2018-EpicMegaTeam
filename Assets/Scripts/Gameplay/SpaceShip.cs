@@ -42,6 +42,11 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
     {
         _hp -= dmg;
 
+        if (_hp > GameParams.SPACESHIP_MAX_HP)
+        {
+            _hp = GameParams.SPACESHIP_MAX_HP;
+        }
+
         if (_hp <= 0)
         {
             OnDestroy();
