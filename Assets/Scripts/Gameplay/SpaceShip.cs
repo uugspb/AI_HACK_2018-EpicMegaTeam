@@ -44,7 +44,17 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
 
         if (_hp <= 0)
         {
+            OnDestroy();
             Destroy(this.gameObject);
+        }
+    }
+
+    void OnDestroy()
+    {
+        var idx = GameContext.Instance.ships.FindIndex(s => s.ownerName == GetOwner());
+        if (idx >= 0)
+        {
+            GameContext.Instance.ships.RemoveAt(idx);
         }
     }
 
@@ -81,11 +91,6 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
             //rb.velocity.Set(vel.x, vel.y, vel.z);
         }
 
-        if (_slowDownIntention)
-        {
-
-        }
-
         if (_shotIntention)
         {
             weapon.Shot();
@@ -93,9 +98,14 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         ResetIntentions();
     }
 
+    void Update()
+    {
+        UpdateInfo();
+    }
+
     public string GetOwner()
     {
-        return info.ownerName;
+        return Name;
     }
 
     void UpdateInfo()
@@ -104,6 +114,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         info.rotation = transform.rotation;
         info.acceleration = _lastAcceleration;
         info.weapon = weapon.GetWeaponType();
+        info.health = _hp;
     }
     
 

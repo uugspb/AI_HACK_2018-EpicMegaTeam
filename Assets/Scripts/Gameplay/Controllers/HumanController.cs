@@ -30,10 +30,6 @@ public class HumanController : MonoBehaviour {
         {
             target.Accelerate();
         }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            target.SlowDown();
-        }
         if (Input.GetKey(KeyCode.Space))
         {
             target.Shot();

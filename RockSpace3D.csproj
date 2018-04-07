@@ -300,6 +300,7 @@
     <Compile Include="Assets\Scripts\Gameplay\SpaceShipInfo.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SpaceShipInterface.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Weapon.cs" />
+    <Compile Include="Assets\Scripts\GUI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Stuff\CameraFollower.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
