@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
         var ship = other.GetComponent<SpaceShip>();
         if (ship != null)
         {
-            Debug.Log(ship.GetOwner() + ":::" + ownerName);
+            //Debug.Log(ship.GetOwner() + ":::" + ownerName);
             if (ship.GetOwner() != ownerName)
             {
                 ship.Damage(GameParams.GetProjectileInfo(type).damage);
