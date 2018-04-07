@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
     private void Start()
     {
         StartCoroutine(WaitAndSpawnAsteroid());
-       // StartCoroutine(WaitAndSpawnBonus());
+        StartCoroutine(WaitAndSpawnBonus());
         _instance = this;
     }
 
@@ -47,7 +47,10 @@ public class GameManager : MonoBehaviour {
             yield return wait;
             if (GameContext.Instance.bonuses.Count < GameParams.BONUSES_MAX)
             {
-                Instantiate(bonusesProto[Random.Range(0, bonusesProto.Count)], GetRandomPosition(), Quaternion.identity, asteroidParent.transform);
+                var bonus = ObjectsPool.Instance.GetBonus();
+                bonus.transform.parent = null;
+                bonus.transform.position = GetRandomPosition();
+               // Instantiate(bonusesProto[Random.Range(0, bonusesProto.Count)], GetRandomPosition(), Quaternion.identity, asteroidParent.transform);
             }
         }
     }

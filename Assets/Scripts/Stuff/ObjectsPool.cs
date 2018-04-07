@@ -22,6 +22,9 @@ public class ObjectsPool : MonoBehaviour
 
     [SerializeField] int healthBonusesLimit = 3;
     [SerializeField] int weaponBonusesLimit = 5;
+    [SerializeField] GameObject healthBonusProto;
+    [SerializeField] GameObject weaponBonusProto;
+    public List<GameObject> bonuses;
 
     public void ReturnToPool(Projectile projectile)
     {/*
@@ -70,6 +73,20 @@ public class ObjectsPool : MonoBehaviour
         }
         return result;
     }
+    int idx4 = 0;
+    public GameObject GetBonus()
+    {
+        var result = bonuses[idx4];
+        idx4 = (idx4 + 1) % bonuses.Count;
+        result.GetComponent<BonusBase>().enable = true;
+        return result;
+    }
+    public void ReturnToPool(BonusBase bonus)
+    {
+        bonus.transform.parent = this.transform;
+        bonus.enable = false;
+        bonus.transform.localPosition = Vector3.zero;
+    }
 
     private void Start()
     {
@@ -98,6 +115,20 @@ public class ObjectsPool : MonoBehaviour
             var pr = Instantiate(proto, this.transform);
             pr.transform.localPosition = Vector3.zero;
             missileProjectiles.Add(pr);
+        }
+
+        for (int i = 0; i < healthBonusesLimit; i++)
+        {
+            var pr = Instantiate(healthBonusProto, this.transform);
+            pr.transform.localPosition = Vector3.zero;
+            bonuses.Add(pr);
+        }
+
+        for (int i = 0; i < weaponBonusesLimit; i++)
+        {
+            var pr = Instantiate(healthBonusProto, this.transform);
+            pr.transform.localPosition = Vector3.zero;
+            bonuses.Add(pr);
         }
     }
 }

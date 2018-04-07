@@ -1169,6 +1169,13 @@ MonoBehaviour:
   baseProjectiles: []
   laserProjectiles: []
   missileProjectiles: []
+  healthBonusesLimit: 3
+  weaponBonusesLimit: 5
+  healthBonusProto: {fileID: 1719030665244140, guid: f473b2ecb79653a49901c95d6b28cbdf,
+    type: 2}
+  weaponBonusProto: {fileID: 1322733708390578, guid: 4a6eaeaba1ae5a6488acf5ab74f5420f,
+    type: 2}
+  bonuses: []
 --- !u!1 &1087290826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,7 +2043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 751
+    vectorObservationSize: 783
     numStackedVectorObservations: 1
     vectorActionSize: 4
     cameraResolutions: []

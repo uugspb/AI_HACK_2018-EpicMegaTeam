@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BonusBase : MonoBehaviour {
-
+    public bool enable = true;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,25 +13,25 @@ public abstract class BonusBase : MonoBehaviour {
         {
             OnBonusPick(ship);
             OnDestroy();
-            Destroy(this.gameObject);
         }
         if (other.name.Contains("Planet"))
         {
             OnDestroy();
-            Destroy(this.gameObject);
         }
     }
 
     public abstract void OnBonusPick(SpaceShip ship);
     public abstract GameParams.BonusType GetBonusType();
 
-    private void Start()
+    private void Awake()
     {
         GameContext.Instance.bonuses.Add(this);
     }
 
     private void OnDestroy()
     {
-        GameContext.Instance.bonuses.Remove(this);
+        ObjectsPool.Instance.ReturnToPool(this);
+        //Destroy(this.gameObject);
+        //GameContext.Instance.bonuses.Remove(this);
     }
 }

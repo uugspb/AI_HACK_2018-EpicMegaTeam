@@ -41,12 +41,12 @@ public class SpaceRocksAgent : Agent {
             AddVectorObs(projectile.GetVelocity());
             AddVectorObs(projectile.GetOwnerName().GetHashCode());
         }
-        /*
+        
         foreach (var bonus in GameContext.Instance.bonuses)
         {
             AddVectorObs((int)bonus.GetBonusType());
             AddVectorObs(bonus.transform.position);
-        }*/
+        }
     }
     int prevScore;
     int prevHP;
