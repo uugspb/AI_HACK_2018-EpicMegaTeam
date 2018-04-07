@@ -35,6 +35,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
     void Start () {
         rb = GetComponent<Rigidbody>();
         SetOwnerName(Name);
+        GameContext.Instance.ships.Add(info);
         OnSpawn();
 	}
 
@@ -43,7 +44,12 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         SetWeapon(GameParams.ProjectileType.Basic);
         //weapon.type = GameParams.ProjectileType.Basic;
         _hp = GameParams.SPACESHIP_MAX_HP;
-        GameContext.Instance.ships.Add(info);
+        info.enabled = true;
+    }
+
+    private void OnDisable()
+    {
+        info.enabled = false;
     }
 
     public int Damage(int dmg)
@@ -65,11 +71,11 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
 
     void OnDestroy()
     {
-        var idx = GameContext.Instance.ships.FindIndex(s => s.ownerName == GetOwner());
-        if (idx >= 0)
+        if (GetOwner() == "UberBot")
         {
-            GameContext.Instance.ships.RemoveAt(idx);
+            SpaceRocksAgent.Instance.AddReward(-1f);
         }
+
         GameManager.Instance.InitializeRespawn(this);
         StopAllCoroutines();
         this.gameObject.SetActive(false);

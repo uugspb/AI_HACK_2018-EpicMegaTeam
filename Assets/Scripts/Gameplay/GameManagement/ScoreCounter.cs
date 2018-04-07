@@ -8,8 +8,15 @@ public class ScoreCounter : MonoBehaviour {
 
     public static void AddScore(string player, int scoreToAdd)
     {
+        if (player == "UberBot")
+        {
+            SpaceRocksAgent.Instance.AddReward(scoreToAdd/100f);
+        }
         var idx = score.FindIndex(s => s.player == player);
-        score[idx].score += scoreToAdd;
+        if (idx != -1)
+        {
+            score[idx].score += scoreToAdd;
+        }
     }
 
     [System.Serializable]
@@ -18,6 +25,7 @@ public class ScoreCounter : MonoBehaviour {
         public string player = "";
         public int score = 0;
     }
+
     public void Start()
     {
         for (int i = 0; i < GameContext.Instance.ships.Count; i++)

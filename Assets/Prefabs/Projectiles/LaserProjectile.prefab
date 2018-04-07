@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23872698917609132}
   - component: {fileID: 54691982268687702}
   - component: {fileID: 114900960757996052}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LaserProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1178222850133864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.41, y: -1.1396583, z: -1.7123141}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd2e1ed43677df4a8578a2fe78076ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionProto: {fileID: 0}
+  spawnProto: {fileID: 0}
 --- !u!135 &135945719801082736
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -10,4 +10,5 @@ public class SpaceShipInfo : MonoBehaviour {
     public Vector3 acceleration;
     public GameParams.ProjectileType weapon;
     public int health;
+    public bool enabled;
 }

@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {    
     Rigidbody rb;
     bool _initialized = false;
-    string ownerName;
+    string ownerName = "";
     GameParams.ProjectileType type;
     [SerializeField] GameObject explosionProto;
     [SerializeField] GameObject spawnProto;
@@ -16,11 +16,22 @@ public class Projectile : MonoBehaviour
         return ownerName;
     }
 
-   
+    public GameParams.ProjectileType GetProjectileType()
+    {
+        return type;
+    }
+    public void Reset()
+    {
+        ownerName = "";
+    }
+
 
     public static Projectile SpawnProjectile(GameParams.ProjectStruct projectileInfo, Transform gun)
     {
-        return Instantiate(projectileInfo.projectileProto, gun);
+        var result = ObjectsPool.Instance.GetProjectile(projectileInfo.t);
+        result.transform.parent = gun;
+        result.transform.localPosition = Vector3.zero;
+        return result; //Instantiate(projectileInfo.projectileProto, gun);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -67,23 +78,20 @@ public class Projectile : MonoBehaviour
 
     public void Init(Vector3 velocity, float lifeTime, string ownerName, GameParams.ProjectileType type)
     {
-        if (!_initialized)
+        this.type = type;
+        this.ownerName = ownerName;
+        this.transform.parent = null;
+        rb.velocity = velocity;
+        _initialized = true;
+        StartCoroutine(WaitAndDie(lifeTime));
+        GameContext.Instance.projectiles.Add(this);
+        if (type == GameParams.ProjectileType.HomingMissile)
         {
-            this.type = type;
-            this.ownerName = ownerName;
-            this.transform.parent = null;
-            rb.velocity = velocity;
-            _initialized = true;
-            StartCoroutine(WaitAndDie(lifeTime));
-            GameContext.Instance.projectiles.Add(this);
-            if (type == GameParams.ProjectileType.HomingMissile)
-            {
-                TargetName = GetBetterTarget();
-            }
-            if (spawnProto != null)
-            {
-                Instantiate(spawnProto, this.transform.position, this.transform.rotation);
-            }
+            TargetName = GetBetterTarget();
+        }
+        if (spawnProto != null)
+        {
+            Instantiate(spawnProto, this.transform.position, this.transform.rotation);
         }
     }
 
@@ -95,7 +103,7 @@ public class Projectile : MonoBehaviour
         for (int i = 0; i < GameContext.Instance.ships.Count; i++)
         {
             float dist = Vector3.Distance(pos, GameContext.Instance.ships[i].position);
-            if (dist < minDist && GameContext.Instance.ships[i].ownerName != ownerName)
+            if (dist < minDist && GameContext.Instance.ships[i].ownerName != ownerName && GameContext.Instance.ships[i].enabled)
             {
                 idx = i;
                 minDist = dist;
@@ -132,7 +140,7 @@ public class Projectile : MonoBehaviour
         {
             Instantiate(explosionProto, this.transform.position, this.transform.rotation);
         }
-        Destroy(this.gameObject);
+        ObjectsPool.Instance.ReturnToPool(this);
     }
 
     public Vector3 GetVelocity()

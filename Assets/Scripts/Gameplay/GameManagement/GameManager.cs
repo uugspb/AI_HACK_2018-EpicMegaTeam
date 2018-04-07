@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
     private void Start()
     {
         StartCoroutine(WaitAndSpawnAsteroid());
-        StartCoroutine(WaitAndSpawnBonus());
+       // StartCoroutine(WaitAndSpawnBonus());
         _instance = this;
     }
 

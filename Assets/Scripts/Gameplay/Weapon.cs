@@ -80,8 +80,11 @@ public class Weapon : MonoBehaviour
     public void SpawnProjectile(Transform aim, Vector3 offset)
     {
         var projectile = Projectile.SpawnProjectile(projectileInfo, gun);
-        projectile.transform.localPosition = offset;
-        projectile.Init((aim.position - gun.position).normalized * projectileInfo.velocity, projectileInfo.lifeTime, ownerName, type);
+        if (projectile != null)
+        {
+            projectile.transform.localPosition = offset;
+            projectile.Init((aim.position - gun.position).normalized * projectileInfo.velocity, projectileInfo.lifeTime, ownerName, type);
+        }
     }    
 
     public float GetReloadingTime()
