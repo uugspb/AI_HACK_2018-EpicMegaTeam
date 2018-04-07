@@ -28,6 +28,6 @@ public class GameContext : MonoBehaviour {
 
     private void Update()
     {
-        //Debug.Log("Ships:" + ships.Count + "///       Projectiles:" + projectiles.Count + "///       Bonuses:" + bonuses.Count + "///       Bonuses:" + Asteroids.Count);
+        //Debug.Log("Ships:" + ships.Count + "///       Projectiles:" + projectiles.Count + "///       Bonuses:" + bonuses.Count + "///       Asteroids:" + asteroids.Count);
     }
 }

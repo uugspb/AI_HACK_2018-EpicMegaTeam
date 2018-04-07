@@ -307,13 +307,11 @@
     <Compile Include="Assets\Scripts\Gameplay\Bonuses\HealthBonus.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Bonuses\ShieldBonus.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Bonuses\WeaponBonus.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\ContextableObject.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Controllers\HumanController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Controllers\ShooterController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameContext.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameParams.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Projectile.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\ShipController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SpaceShip.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SpaceShipInfo.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SpaceShipInterface.cs" />
