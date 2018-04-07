@@ -19,5 +19,6 @@ public class ShooterController : MonoBehaviour {
 	void Update ()
     {
         target.Shot();
+        target.RotateLeft();
     }
 }

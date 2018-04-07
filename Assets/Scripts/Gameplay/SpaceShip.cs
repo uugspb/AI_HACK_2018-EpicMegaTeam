@@ -59,7 +59,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         return _hp;
     }
     Vector3 _lastAcceleration;
-	void Update ()
+	void FixedUpdate ()
     {
         _lastAcceleration = Vector3.zero;
         if (_rotateLeftIntention)
@@ -90,6 +90,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         {
             weapon.Shot();
         }
+        ResetIntentions();
     }
 
     public string GetOwner()
@@ -104,12 +105,6 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         info.acceleration = _lastAcceleration;
         info.weapon = weapon.GetWeaponType();
     }
-
-    void FixedUpdate()
-    {
-        ResetIntentions();
-    }
-
     
 
     public Vector3 CheckForce(Vector3 accel)

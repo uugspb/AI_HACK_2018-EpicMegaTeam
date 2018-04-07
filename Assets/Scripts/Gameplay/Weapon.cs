@@ -10,8 +10,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] Transform aim3;
     [SerializeField] Rigidbody spaceShip;
     [SerializeField] public string ownerName;
-    [SerializeField] GameParams.Type initialType;
-    [SerializeField] GameParams.Type type
+    [SerializeField] GameParams.ProjectileType initialType;
+    [SerializeField] public GameParams.ProjectileType type
     {
         get
         {
@@ -27,10 +27,10 @@ public class Weapon : MonoBehaviour
 
     GameParams.ProjectStruct projectileInfo;
 
-    GameParams.Type _type;
+    GameParams.ProjectileType _type;
     bool _mayShot;
 
-    public GameParams.Type GetWeaponType()
+    public GameParams.ProjectileType GetWeaponType()
     {
         return type;
     }
@@ -48,16 +48,17 @@ public class Weapon : MonoBehaviour
         {
             switch (type)
             {
-                case GameParams.Type.Basic:
+                case GameParams.ProjectileType.Basic:
                 default:
                     SpawnProjectile(aim);
                 break;
-                case GameParams.Type.Twinned:
+
+                case GameParams.ProjectileType.Twinned:
                     SpawnProjectile(aim, new Vector3(0, 0, 1));
                     SpawnProjectile(aim, new Vector3(0, 0, -1));
                 break;
 
-                case GameParams.Type.Triple:
+                case GameParams.ProjectileType.Triple:
                     SpawnProjectile(aim);
                     SpawnProjectile(aim2);
                     SpawnProjectile(aim3);
@@ -73,11 +74,10 @@ public class Weapon : MonoBehaviour
 
     public void SpawnProjectile(Transform aim, Vector3 offset)
     {
-        var projectile = Instantiate(projectileInfo.projectileProto, gun);
+        var projectile = Projectile.SpawnProjectile(projectileInfo, gun);
         projectile.transform.localPosition = offset;
         projectile.Init((aim.position - gun.position).normalized * projectileInfo.velocity + spaceShip.velocity, projectileInfo.lifeTime, ownerName, type);
-    }
-    
+    }    
 
     public float GetReloadingTime()
     {

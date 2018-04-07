@@ -285,6 +285,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Gameplay\Bonuses\BonusBase.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Bonuses\HealthBonus.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Bonuses\ShieldBonus.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Bonuses\WeaponBonus.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ContextableObject.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Controllers\HumanController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Controllers\ShooterController.cs" />

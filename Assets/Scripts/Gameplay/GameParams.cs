@@ -13,7 +13,7 @@ public class GameParams : MonoBehaviour {
     public const int PROJECTILE_BASIC_SPEED = 3;
 
 
-    public enum Type
+    public enum ProjectileType
     {
         Basic,
         Twinned,
@@ -24,10 +24,17 @@ public class GameParams : MonoBehaviour {
         HomingMissile
     }
 
+    public enum BonusType
+    {
+        Weapon,
+        Health,
+        Shield
+    }
+
     [System.Serializable]
     public struct ProjectStruct
     {
-        public Type t;
+        public ProjectileType t;
         public Projectile projectileProto;
         public float velocity;
         public float reload;
@@ -44,7 +51,7 @@ public class GameParams : MonoBehaviour {
         projectiles = _projectiles;
     }
 
-    public static ProjectStruct GetProjectileInfo(Type type)
+    public static ProjectStruct GetProjectileInfo(ProjectileType type)
     {
         return projectiles.Find(p => p.t == type);
     }

@@ -7,11 +7,16 @@ public class Projectile : MonoBehaviour
     Rigidbody rb;
     bool _initialized = false;
     string ownerName;
-    GameParams.Type type;
+    GameParams.ProjectileType type;
 
     public string GetOwnerName()
     {
         return ownerName;
+    }
+
+    public static Projectile SpawnProjectile(GameParams.ProjectStruct projectileInfo, Transform gun)
+    {
+        return Instantiate(projectileInfo.projectileProto, gun);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,7 +24,6 @@ public class Projectile : MonoBehaviour
         var ship = other.GetComponent<SpaceShip>();
         if (ship != null)
         {
-            //Debug.Log(ship.GetOwner() + ":::" + ownerName);
             if (ship.GetOwner() != ownerName)
             {
                 ship.Damage(GameParams.GetProjectileInfo(type).damage);
@@ -35,7 +39,7 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    public void Init(Vector3 velocity, float lifeTime, string ownerName, GameParams.Type type)
+    public void Init(Vector3 velocity, float lifeTime, string ownerName, GameParams.ProjectileType type)
     {
         if (!_initialized)
         {
@@ -48,6 +52,7 @@ public class Projectile : MonoBehaviour
             GameContext.Instance.projectiles.Add(this);
         }
     }
+
     IEnumerator WaitAndDie(float time)
     {
         yield return new WaitForSeconds(time);

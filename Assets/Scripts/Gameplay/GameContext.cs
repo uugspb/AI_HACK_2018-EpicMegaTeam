@@ -22,8 +22,10 @@ public class GameContext : MonoBehaviour {
 
     public List<Projectile> projectiles = new List<Projectile>();
 
+    public List<BonusBase> bonuses = new List<BonusBase>();
+
     private void Update()
     {
-       // Debug.Log("Ships:" + ships.Count + "///       Projectiles:" + projectiles.Count);
+        //Debug.Log("Ships:" + ships.Count + "///       Projectiles:" + projectiles.Count + "///       Bonuses:" + bonuses.Count);
     }
 }

@@ -8,5 +8,5 @@ public class SpaceShipInfo : MonoBehaviour {
     public Vector3 position;
     public Quaternion rotation;
     public Vector3 acceleration;
-    public GameParams.Type weapon;
+    public GameParams.ProjectileType weapon;
 }
