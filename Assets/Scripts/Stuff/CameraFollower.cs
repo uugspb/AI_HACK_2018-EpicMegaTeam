@@ -7,8 +7,11 @@ public class CameraFollower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        var pos = target.position;
-        pos.y = this.transform.position.y;
-        this.transform.position = pos;
+        if (target != null)
+        {
+            var pos = target.position;
+            pos.y = this.transform.position.y;
+            this.transform.position = pos;
+        }
 	}
 }
