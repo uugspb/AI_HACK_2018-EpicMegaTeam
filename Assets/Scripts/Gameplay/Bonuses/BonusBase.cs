@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BonusBase : MonoBehaviour {
-    public bool enable = true;
+    public bool enable = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,6 +25,7 @@ public abstract class BonusBase : MonoBehaviour {
 
     private void Awake()
     {
+        enable = false;
         GameContext.Instance.bonuses.Add(this);
     }
 

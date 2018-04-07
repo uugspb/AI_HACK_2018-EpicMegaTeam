@@ -2043,7 +2043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 783
+    vectorObservationSize: 791
     numStackedVectorObservations: 1
     vectorActionSize: 4
     cameraResolutions: []

@@ -81,6 +81,7 @@ public class ObjectsPool : MonoBehaviour
         result.GetComponent<BonusBase>().enable = true;
         return result;
     }
+
     public void ReturnToPool(BonusBase bonus)
     {
         bonus.transform.parent = this.transform;

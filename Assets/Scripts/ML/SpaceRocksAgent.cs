@@ -46,6 +46,7 @@ public class SpaceRocksAgent : Agent {
         {
             AddVectorObs((int)bonus.GetBonusType());
             AddVectorObs(bonus.transform.position);
+            AddVectorObs(bonus.enable ? 1 : 0);
         }
     }
     int prevScore;

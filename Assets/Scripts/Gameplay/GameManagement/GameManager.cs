@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
         while (true)
         {
             yield return wait;
-            if (GameContext.Instance.bonuses.Count < GameParams.BONUSES_MAX)
+            if (GameContext.Instance.bonuses.FindAll(b => b.enable).Count < GameParams.BONUSES_MAX)
             {
                 var bonus = ObjectsPool.Instance.GetBonus();
                 bonus.transform.parent = null;
