@@ -32,6 +32,7 @@ public class GameParams : MonoBehaviour {
         public float velocity;
         public float reload;
         public float lifeTime;
+        public int damage;
     }
 
     [SerializeField] List<ProjectStruct> _projectiles = new List<ProjectStruct>();

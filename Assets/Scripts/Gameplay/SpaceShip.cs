@@ -38,6 +38,16 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         SetOwnerName(Name);
 	}
 
+    public void Damage(int dmg)
+    {
+        _hp -= dmg;
+
+        if (_hp <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     public void SetOwnerName(string name)
     {
         info.ownerName = name;

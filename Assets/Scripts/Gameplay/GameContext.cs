@@ -24,6 +24,6 @@ public class GameContext : MonoBehaviour {
 
     private void Update()
     {
-        Debug.Log("Ships:" + ships.Count + "///       Projectiles:" + projectiles.Count);
+       // Debug.Log("Ships:" + ships.Count + "///       Projectiles:" + projectiles.Count);
     }
 }

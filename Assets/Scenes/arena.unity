@@ -615,18 +615,21 @@ MonoBehaviour:
     velocity: 3
     reload: 0.5
     lifeTime: 3
+    damage: 10
   - t: 1
     projectileProto: {fileID: 114900960757996052, guid: 48a218b5e550f24468cfe64afec07334,
       type: 2}
     velocity: 6
     reload: 0.2
     lifeTime: 3
+    damage: 10
   - t: 2
     projectileProto: {fileID: 114900960757996052, guid: 48a218b5e550f24468cfe64afec07334,
       type: 2}
     velocity: 6
     reload: 0.2
     lifeTime: 3
+    damage: 10
 --- !u!4 &2060713119
 Transform:
   m_ObjectHideFlags: 0

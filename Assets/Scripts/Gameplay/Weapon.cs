@@ -75,7 +75,7 @@ public class Weapon : MonoBehaviour
     {
         var projectile = Instantiate(projectileInfo.projectileProto, gun);
         projectile.transform.localPosition = offset;
-        projectile.Init((aim.position - gun.position).normalized * projectileInfo.velocity + spaceShip.velocity, projectileInfo.lifeTime, ownerName);
+        projectile.Init((aim.position - gun.position).normalized * projectileInfo.velocity + spaceShip.velocity, projectileInfo.lifeTime, ownerName, type);
     }
     
 
