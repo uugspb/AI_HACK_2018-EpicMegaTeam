@@ -74,6 +74,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         if (GetOwner() == "UberBot")
         {
             SpaceRocksAgent.Instance.AddReward(-1f);
+            SpaceRocksAgent.Instance.DoDone();
         }
 
         GameManager.Instance.InitializeRespawn(this);

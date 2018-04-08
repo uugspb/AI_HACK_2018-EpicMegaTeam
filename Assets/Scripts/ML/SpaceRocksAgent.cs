@@ -51,6 +51,12 @@ public class SpaceRocksAgent : Agent {
     }
     int prevScore;
     int prevHP;
+
+    public void DoDone()
+    {
+        Done();
+    }
+
     public override void AgentAction(float[] vectorAction, string textAction)
     {
         if (vectorAction[0] > 0)
