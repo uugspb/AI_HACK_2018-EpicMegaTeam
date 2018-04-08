@@ -10429,6 +10429,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1063716830}
+  - component: {fileID: 1063716831}
   m_Layer: 5
   m_Name: Bonuses
   m_TagString: Untagged
@@ -10455,6 +10456,19 @@ RectTransform:
   m_AnchoredPosition: {x: -731, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1063716831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1063716829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9bff83cb03e8843af6c861c1d0a2ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonusProto: {fileID: 1501110563}
+  hpSprite: {fileID: 926579465}
 --- !u!4 &1086615354 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4630099845438768, guid: b7f175215beeb2d40ac35084d09d9ba4,
@@ -15103,7 +15117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1501110562
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19419,7 +19433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1955799965}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: DinamicalSprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
