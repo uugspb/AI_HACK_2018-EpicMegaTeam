@@ -69,6 +69,14 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         return _hp;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (GetOwner() == "UberBot")
+        {
+            SpaceRocksAgent.Instance.AddReward(-0.01f);
+        }
+    }
+
     void OnDestroy()
     {
         if (GetOwner() == "UberBot")
@@ -76,9 +84,8 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
             SpaceRocksAgent.Instance.AddReward(-1f);
             SpaceRocksAgent.Instance.DoDone();
         }
-
-        GameManager.Instance.InitializeRespawn(this);
         StopAllCoroutines();
+        GameManager.Instance.InitializeRespawn(this);
         this.gameObject.SetActive(false);
     }
 

@@ -11,6 +11,11 @@ public abstract class BonusBase : MonoBehaviour {
         var ship = other.GetComponent<SpaceShip>();
         if (ship != null)
         {
+            if (ship.Name == "UberBot")
+            {
+                SpaceRocksAgent.Instance.AddReward(0.05f);
+            }
+
             OnBonusPick(ship);
             OnDestroy();
         }

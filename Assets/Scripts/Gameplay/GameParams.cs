@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameParams : MonoBehaviour {
 
-    public const int SPACESHIP_MAX_HP = 1;
+    public const int SPACESHIP_MAX_HP = 20;
     public const int SPACESHIP_MAX_SPEED = 6;
     public const int SPACESHIP_ACCELERATION = 3;
     public const int SPACESHIP_ROTATION_SPEED = 3;
