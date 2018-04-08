@@ -427,6 +427,7 @@
     <Compile Include="Assets\Scripts\GUI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\GUI\HUD.cs" />
     <Compile Include="Assets\Scripts\GUI\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\GUI\ScoreView.cs" />
     <Compile Include="Assets\Scripts\ML\SpaceRocksAcademy.cs" />
     <Compile Include="Assets\Scripts\ML\SpaceRocksAgent.cs" />
     <Compile Include="Assets\Scripts\Stuff\CameraFollower.cs" />
