@@ -36,12 +36,12 @@ public class GameManager : MonoBehaviour {
     }
     Vector3 GetRandomPosition()
     {
-        return new Vector3(Random.Range(-35, 35), 0, Random.Range(-25, 25));
+        return new Vector3(Random.Range(-15, 15), 0, Random.Range(-15, 15));
     }
 
     IEnumerator WaitAndSpawnBonus()
     {
-        var wait = new WaitForSeconds(1.0f);
+        var wait = new WaitForSeconds(4.0f);
         while (true)
         {
             yield return wait;

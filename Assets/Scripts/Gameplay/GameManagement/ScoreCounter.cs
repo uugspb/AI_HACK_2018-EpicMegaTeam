@@ -10,7 +10,7 @@ public class ScoreCounter : MonoBehaviour {
     {
         if (player == "UberBot")
         {
-            SpaceRocksAgent.Instance.AddReward(scoreToAdd/100f);
+            SpaceRocksAgent.Instance.AddReward(scoreToAdd);
         }
         var idx = score.FindIndex(s => s.player == player);
         if (idx != -1)

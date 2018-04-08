@@ -127,7 +127,7 @@ public class ObjectsPool : MonoBehaviour
 
         for (int i = 0; i < weaponBonusesLimit; i++)
         {
-            var pr = Instantiate(healthBonusProto, this.transform);
+            var pr = Instantiate(weaponBonusProto, this.transform);
             pr.transform.localPosition = Vector3.zero;
             bonuses.Add(pr);
         }

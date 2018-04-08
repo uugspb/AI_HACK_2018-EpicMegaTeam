@@ -27,12 +27,13 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
     bool _shotIntention = false;
     int _hp = 100;
 
-    SpaceShipInfo info = new SpaceShipInfo();
+    public SpaceShipInfo info;
 
     public string Name;
     
     // Use this for initialization
     void Start () {
+        info = new SpaceShipInfo();
         rb = GetComponent<Rigidbody>();
         SetOwnerName(Name);
         GameContext.Instance.ships.Add(info);
@@ -63,7 +64,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
 
         if (_hp <= 0)
         {
-            OnDestroy();
+            OnDestruct();
             //Destroy(this.gameObject);
         }
         return _hp;
@@ -73,15 +74,16 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
     {
         if (GetOwner() == "UberBot")
         {
-            SpaceRocksAgent.Instance.AddReward(-0.01f);
+            //SpaceRocksAgent.Instance.AddReward(-0.01f);
         }
     }
 
-    void OnDestroy()
+    void OnDestruct()
     {
         if (GetOwner() == "UberBot")
         {
-            SpaceRocksAgent.Instance.AddReward(-1f);
+            //ScoreCounter.AddScore("UberBot", -7);
+            SpaceRocksAgent.Instance.AddReward(-100f);
             SpaceRocksAgent.Instance.DoDone();
         }
         StopAllCoroutines();
@@ -149,6 +151,7 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         info.acceleration = _lastAcceleration;
         info.weapon = weapon.GetWeaponType();
         info.health = _hp;
+        info.forward = this.transform.forward;
     }
     
 
@@ -207,5 +210,6 @@ public class SpaceShip : MonoBehaviour, SpaceShipInterface {
         var mat = new Material(info.material);
         mat.color = GetColor(color);
         shipRend.material = mat;
+        HUD.Instance.weaponIcon.sprite = info.icon.sprite;//, HUD.Instance.weaponIcon.sprite.rect, HUD.Instance.weaponIcon.sprite.pivot);
     }
 }

@@ -42,6 +42,7 @@ public class GameParams : MonoBehaviour {
         public int damage;
         public Mesh mesh;
         public Material material;
+        public SpriteRenderer icon;
     }
 
     [SerializeField] List<ProjectStruct> _projectiles = new List<ProjectStruct>();

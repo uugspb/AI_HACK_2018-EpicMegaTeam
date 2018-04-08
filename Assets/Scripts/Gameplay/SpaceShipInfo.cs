@@ -11,4 +11,5 @@ public class SpaceShipInfo : MonoBehaviour {
     public GameParams.ProjectileType weapon;
     public int health;
     public bool enabled;
+    public Vector3 forward;
 }

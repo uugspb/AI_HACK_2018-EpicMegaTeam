@@ -15,15 +15,16 @@ public class SpaceRocksAgent : Agent {
         foreach (var ship in GameContext.Instance.ships)
         {
             AddVectorObs(ship.acceleration);
-            AddVectorObs(ship.health);
+           // AddVectorObs(ship.health);
             AddVectorObs(ship.ownerName.GetHashCode());
             AddVectorObs(ship.position);
             AddVectorObs(ship.rotation);
             AddVectorObs(ship.acceleration);
-            AddVectorObs((int)ship.weapon);
+            //AddVectorObs((int)ship.weapon);
             AddVectorObs(ship.health);
+            AddVectorObs(ship.forward);
         }
-
+        /*
         foreach (var projectile in ObjectsPool.Instance.baseProjectiles)
         {
             AddVectorObs(projectile.GetVelocity());
@@ -47,7 +48,7 @@ public class SpaceRocksAgent : Agent {
             AddVectorObs((int)bonus.GetBonusType());
             AddVectorObs(bonus.transform.position);
             AddVectorObs(bonus.enable ? 1 : 0);
-        }
+        }*/
     }
     int prevScore;
     int prevHP;
@@ -74,6 +75,12 @@ public class SpaceRocksAgent : Agent {
         if (vectorAction[3] > 0)
         {
             target.Shot();
+        }
+        if( (target.transform.position.x < -12 || target.transform.position.x > 12)
+            ||
+             (target.transform.position.z < -12 || target.transform.position.z > 12))
+        {
+            AddReward(-1);
         }
     }
 

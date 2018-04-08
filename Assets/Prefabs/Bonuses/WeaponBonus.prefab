@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1322733708390578}
   m_LocalRotation: {x: 0.31040004, y: -0, z: -0, w: 0.95060605}
   m_LocalPosition: {x: 9.83, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 0.1, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3004e6db9c106114bb68d7937559b27f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enable: 0
   projectileType: 1
 --- !u!136 &136961100345655206
 CapsuleCollider:
